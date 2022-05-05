@@ -25,7 +25,7 @@ jobs:
         with:
           submodules: true
       - id: comp
-        uses: ./ga-test-sub/composite.yml
+        uses: ./ga-test-sub
         with:
           who-to-greet: "Mona the Octocat"
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
