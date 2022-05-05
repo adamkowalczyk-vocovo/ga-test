@@ -1,7 +1,7 @@
 name: Test
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
+  main:
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -17,3 +17,16 @@ jobs:
         run: |
           ls ${{ github.workspace }}
       - run: echo "🍏 This job's status is ${{ job.status }}."
+  submodule_composite:
+    runs-on: ubuntu-latest
+    name: Composite action within submodule
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+      - id: comp
+        uses: ./ga-test-sub/composite.yml
+        with:
+          who-to-greet: "Mona the Octocat"
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
