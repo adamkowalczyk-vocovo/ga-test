@@ -25,8 +25,13 @@ jobs:
         with:
           submodules: true
       - id: composite
-        uses: ./ga-test-sub
+        uses: ./ga-test-sub/composite
         with:
           who-to-greet: "Mona the Octocat"
       - run: echo random-number ${{ steps.composite.outputs.random-number }}
         shell: bash
+  submodule_reusable:
+    name: Reusable action within submodule
+    uses: ./ga-test-sub/.github/workflows/reusable.yml
+    with:
+      username: "Spongebob"
