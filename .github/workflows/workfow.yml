@@ -31,7 +31,7 @@ jobs:
       - run: echo random-number ${{ steps.composite.outputs.random-number }}
         shell: bash
   submodule_reusable:
-    name: Reusable action within submodule
-    uses: ./ga-test-sub/.github/workflows/reusable.yml
+    name: Reusable action within parent repo
+    uses: ./.github/workflows/reusable-parent.yml
     with:
       username: "Spongebob"
