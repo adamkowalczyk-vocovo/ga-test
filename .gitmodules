@@ -1,0 +1,3 @@
+[submodule "ga-test-sub"]
+	path = ga-test-sub
+	url = https://github.com/adamkowalczyk-vocovo/ga-test-sub
